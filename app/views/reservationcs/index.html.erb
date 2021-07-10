@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Reservationcs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Start time</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reservationcs.each do |reservationc| %>
+      <tr>
+        <td><%= reservationc.name %></td>
+        <td><%= reservationc.start_time %></td>
+        <td><%= link_to 'Show', reservationc %></td>
+        <td><%= link_to 'Edit', edit_reservationc_path(reservationc) %></td>
+        <td><%= link_to 'Destroy', reservationc, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Reservationc', new_reservationc_path %>

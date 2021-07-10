@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_08_071852) do
+ActiveRecord::Schema.define(version: 2021_07_10_081729) do
 
   create_table "customers", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -21,8 +21,23 @@ ActiveRecord::Schema.define(version: 2021_07_08_071852) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "last_name"
+    t.string "first_name"
+    t.string "first_name_kana"
+    t.string "last_name_kana"
+    t.string "postcode"
+    t.string "address"
+    t.string "phone_number"
+    t.boolean "is_deleted"
     t.index ["email"], name: "index_customers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
+  end
+
+  create_table "reservationcs", force: :cascade do |t|
+    t.string "name"
+    t.datetime "start_time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
