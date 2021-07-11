@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   root to:'homes#top'
 
  resource :reservationcs
-  get 'reservations/index'
+  get 'reservationcs/index'
 end
