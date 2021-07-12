@@ -4,4 +4,6 @@ Rails.application.routes.draw do
 
  resource :reservationcs
   get 'reservationcs/index'
+  get 'reservationcs/new'
+  get 'reservationcs/show'
 end

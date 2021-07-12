@@ -25,7 +25,7 @@ class ReservationcsController < ApplicationController
 
     respond_to do |format|
       if @reservationc.save
-        format.html { redirect_to @reservationc, notice: "Reservationc was successfully created." }
+        format.html { redirect_to (@reservationc.id), notice: "Reservationc was successfully created." }
         format.json { render :show, status: :created, location: @reservationc }
       else
         format.html { render :new, status: :unprocessable_entity }

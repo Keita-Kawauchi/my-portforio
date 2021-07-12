@@ -12,18 +12,23 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
+    <%= form.label :名前 %>
     <%= form.text_field :name %>
   </div>
 
   <div class="field">
-    <%= form.label :start_time %>
+    <%= form.label :チェックイン %>
+    <%= form.datetime_select :start_time %>
+  </div>
+
+　<div class="field">
+    <%= form.label :チェックアウト %>
     <%= form.datetime_select :start_time %>
   </div>
 
 　<div class="field">
     <%= form.label :人数 %>
-    <%= form.number_field :number_of_people %>
+    <%= form.number_field :number_of_people %>人
   </div>
 
   <div class="actions">
