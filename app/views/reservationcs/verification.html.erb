@@ -1,11 +1,12 @@
 <h2 class="head-line title_h2 text-center">注文情報確認</h2>
-<div calss="row">
+ <div calss="row">
   <div class="col-xs-9">
-    <% if current_customer.cart_products.present? %>
+    <% if current_customer.reservationcs.present? %>
       <table class="table table-hover table-inverse table-bordered">
         <thead>
           <tr class="info">
             <th>コース</th>
+            <th>人数</th>
             <th>料金(税込)</th>
           </tr>
         </thead>
@@ -13,19 +14,22 @@
           <% reservationcs.each do |reservationc| %>
             <tr>
               <td class="text-right">
-                ¥<%= reservation.course.non_tax_price.to_s(:delimited) %>
+                ¥<%= reservationc.course.non_tax_price.to_s(:delimited) %>
               </td>
               <td class="text-right">
-                ¥<%= (cart_product.product.non_tax_price * cart_product.amount).to_s(:delimited)  %>
+                  <%= reservationc.amount %>
+              </td>
+              <td class="text-right">
+                ¥<%= (reservationc.course.non_tax_price * reservationc.amount).to_s(:delimited)  %>
               </td>
             </tr>
-            <% (@sum += (cart_product.product.non_tax_price * cart_product.amount)).to_s(:delimited) %>
+            <% (@sum += (reservationc.course.non_tax_price * reservationc.amount)).to_s(:delimited) %>
           <% end %>
         </tbody>
       </table>
     </div>
      <div class ="col-xs-11 text-center">
-      <%= form_for(@order, url:customer_orders_path, method: :post,) do |f| %>
+      <%= form_for(@reservationc, url:customer_orders_path, method: :post,) do |f| %>
         <%= f.hidden_field :postcode %>
         <%= f.hidden_field :address %>
         <%= f.hidden_field :name %>
@@ -35,4 +39,6 @@
         　　<i class="fas fa-shipping-fast fa-2x"></i>
         <%= f.submit "購入を確定する", class: "btn btn-warning center-block col-xs-5" %>
       <% end %>
-      </div>
+     </div>
+    <% end %>
+  </div>

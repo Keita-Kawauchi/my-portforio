@@ -19,6 +19,26 @@ class ReservationcsController < ApplicationController
   def edit
   end
 
+  def velification
+    @reservationc = reservationc.new(order_params)
+    @reservationc.payment_method = params[:order][:payment_method]
+    if params[:erea] == "0"
+      @reservationc.postcode = current_customer.postcode
+      @order.address = current_customer.address
+      @order.name = current_customer.last_name + current_customer.first_name
+
+    elsif params[:erea] == "1"
+      @delivery = Delivery.find(params[:delivery][:id])
+      @order.postcode = @delivery.postcode
+      @order.address = @delivery.address
+      @order.name = @delivery.name
+
+    elsif params[:erea] == "2"
+      @order.postcode = params[:order][:postcode]
+      @order.address = params[:order][:address]
+      @order.name = params[:order][:name]
+    end
+  end
   # POST /reservationcs or /reservationcs.json
   def create
     @reservationc = Reservationc.new(reservationc_params)
