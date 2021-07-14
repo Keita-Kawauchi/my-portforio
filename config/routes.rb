@@ -5,12 +5,27 @@ Rails.application.routes.draw do
   registrations: 'admins/registrations'
 }
 
- devise_for :customers
-  root to:'homes#top'
+  devise_for :customers, controllers: {
+  sessions:      'customer/sessions',
+  passwords:     'customer/passwords',
+  registrations: 'customer/registrations'
+}
 
- resource :reservationcs
+
+ namespace :customers, path: "" do
+  root to:'homes#top'
+  #resources :courses, only: [:show,:index]
+  resources :reservationcs, only: [:new, :create, :index, :show]
+ end
+
+ namespace :admins  do
+ resources :courses, only: [:new, :create, :index, :show, :destroy]
+ resources :products, only: [:index,:show, :edit,:update, :new, :create]
+ resources :reservationcs, only: [:index, :show, :update]
   get 'reservationcs/index'
   get 'reservationcs/new'
   get 'reservationcs/show'
   get 'reservationcs/verification'
+
+ end
 end

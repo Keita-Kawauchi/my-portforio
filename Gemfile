@@ -67,4 +67,6 @@ gem 'simple_calendar', '~> 2.0'
 gem 'dotenv-rails'
 group :production do
   gem 'mysql2'
+gem "refile", require: "refile/rails", github: 'manfe/refile'
+gem "refile-mini_magick"
 end
