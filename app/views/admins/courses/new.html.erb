@@ -1,16 +1,17 @@
+<%= render 'layouts/admin_header' %>
 <div class="container my-5">
  <div class="row">
  </div>
 
  <div class="row my-3">
   <div class="offset-sm-3">
-   <h2>商品新規登録</h2>
+   <h2>新規登録</h2>
  <div class="row">
-<%= form_for(@product, url: {controller: 'products', action: 'create' }) do |f| %>
+<%= form_for(@course, url: {controller: 'courses', action: 'create' }) do |f| %>
       <div class="form-group">
         <%= f.label :写真 %>
         <div class="row">
-          <%= f.attachment_field :image %>
+          <%= f.attachment_field :image_id %>
         </div>
       </div>
 
