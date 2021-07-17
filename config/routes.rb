@@ -11,9 +11,9 @@ Rails.application.routes.draw do
   registrations: 'customer/registrations'
 }
 
-
+root to:'homes#top'
  namespace :customers, path: "" do
-  root to:'homes#top'
+
   #resources :courses, only: [:show,:index]
   resources :reservationcs, only: [:new, :create, :index, :show]
  end
