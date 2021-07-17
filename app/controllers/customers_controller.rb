@@ -1,5 +1,5 @@
 class CustomersController < ApplicationController
-  
+
   def show
   	@customer = Customer.find(params[:id])
   end
@@ -31,5 +31,4 @@ class CustomersController < ApplicationController
      #redirect_to root_path
     #end
   #end
-end
 end
