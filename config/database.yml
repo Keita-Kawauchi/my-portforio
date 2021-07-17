@@ -20,13 +20,12 @@ test:
   <<: *default
   database: db/test.sqlite3
 
-production:
-  <<: *default
-  database: rds-mysql-server
+ <<: *default
+  database: <%= ENV['DB_DATABASE'] %>
   adapter: mysql2
   encoding: utf8mb4
   charset: utf8mb4
   collation: utf8mb4_general_ci
-  host: rds-mysql-server.ce4ghgkt7hgh.us-east-1.rds.amazonaws.com
-  username: admin
-  password: Kero1008
+  host: <%= ENV['DB_HOST'] %>
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
