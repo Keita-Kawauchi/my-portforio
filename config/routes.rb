@@ -13,8 +13,8 @@ Rails.application.routes.draw do
 
 root to:'homes#top'
  namespace :customers, path: "" do
-
-  #resources :courses, only: [:show,:index]
+  resources :customers, only: [:show]
+  resources :courses, only: [:show,:index]
   resources :reservationcs, only: [:new, :create, :index, :show]
  end
 

@@ -1,4 +1,4 @@
-<%= render 'layouts/admin_header' %>
+<%= render 'layouts/admin.header' %>
 <div class="container my-5">
  <div class="row">
  </div>
@@ -11,7 +11,7 @@
       <div class="form-group">
         <%= f.label :写真 %>
         <div class="row">
-          <%= f.attachment_field :image_id %>
+          <%= f.attachment_field :image %>
         </div>
       </div>
 
@@ -29,7 +29,7 @@
 
       <div class="form-group">
         <%= f.label :税抜き価格 %>
-        <lavel><%= f.text_field :non_tax_price %>円</lavel>
+        <lavel><%= f.text_field :price %>円</lavel>
       </div>
 
       <div class="row">

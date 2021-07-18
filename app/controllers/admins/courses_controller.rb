@@ -8,9 +8,9 @@ class Admins::CoursesController < ApplicationController
     end
 
     def create
-     @course= Course.new(product_params)
+     @course = Course.new(course_params)
      @course.save
-     redirect_to courses_path(@course)
+     redirect_to customers_reservationcs_path
     end
 
     def show
@@ -24,7 +24,7 @@ class Admins::CoursesController < ApplicationController
     def update
      @course = Course.find(params[:id])
      if @course.update(course_params)
-        redirect_to admin_product_path(@course), notice: "You have updated genre successfully."
+        redirect_to admins_course_path(@course), notice: "You have updated genre successfully."
      else
         render "edit"
      end

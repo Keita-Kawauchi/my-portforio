@@ -8,4 +8,28 @@
 <h4>また、当旅館自慢の露天風呂からは、絶景をご覧いただけます。</h4>
 <h4>ぜひお越しください。</h4>
 
- 
+<div class="container my-5">
+
+  <h2 class="product-headline head-line title_h2 text-center">
+	  商品一覧
+
+	</h2>
+
+
+   <div class="row">
+
+		<% @courses.each do |course| %>
+
+          <div class="col-lg-3 col-md-5 mb-5 my-5">
+
+
+            <p class="courses-name">
+              <%= course.name %>
+            </p>
+          <% end %>
+
+          </div>
+	  </div>
+   </div>
+  </div>
+</div>
