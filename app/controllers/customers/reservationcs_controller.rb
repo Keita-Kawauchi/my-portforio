@@ -1,5 +1,6 @@
-class ReservationcsController < ApplicationController
+class Customers::ReservationcsController < ApplicationController
   before_action :set_reservationc, only: %i[ show edit update destroy ]
+
 
   # GET /reservationcs or /reservationcs.json
   def index
@@ -24,19 +25,13 @@ class ReservationcsController < ApplicationController
     @reservationc.payment_method = params[:order][:payment_method]
     if params[:erea] == "0"
       @reservationc.postcode = current_customer.postcode
-      @order.address = current_customer.address
-      @order.name = current_customer.last_name + current_customer.first_name
+      @reservationc.address = current_customer.address
+      @reservationc.name = current_customer.last_name + current_customer.first_name
 
     elsif params[:erea] == "1"
-      @delivery = Delivery.find(params[:delivery][:id])
-      @order.postcode = @delivery.postcode
-      @order.address = @delivery.address
-      @order.name = @delivery.name
-
-    elsif params[:erea] == "2"
-      @order.postcode = params[:order][:postcode]
-      @order.address = params[:order][:address]
-      @order.name = params[:order][:name]
+      @reservationc.postcode = params[:reservationc][:postcode]
+      @reservationc.address = params[:reservationc][:address]
+      @reservationc.name = params[:reservationc][:name]
     end
   end
   # POST /reservationcs or /reservationcs.json
@@ -78,6 +73,8 @@ class ReservationcsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+
+    before_action
     def set_reservationc
       @reservationc = Reservationc.find(params[:id])
     end

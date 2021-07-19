@@ -1,4 +1,4 @@
-<%= form_with(model: reservationc, local: true) do |form| %>
+<%= form_with model: reservationc, url:customers_reservationcs_verification_path, local: true do |reservationc| %>
   <% if reservationc.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(reservationc.errors.count, "error") %> prohibited this reservationc from being saved:</h2>
