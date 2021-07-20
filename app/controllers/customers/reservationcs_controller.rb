@@ -21,8 +21,7 @@ class Customers::ReservationcsController < ApplicationController
   end
 
   def velification
-    @reservationc = reservationc.new(order_params)
-    @reservationc.payment_method = params[:order][:payment_method]
+    @reservationc = Reservationc.new(reservationc_params)
     if params[:erea] == "0"
       @reservationc.postcode = current_customer.postcode
       @reservationc.address = current_customer.address
@@ -33,6 +32,7 @@ class Customers::ReservationcsController < ApplicationController
       @reservationc.address = params[:reservationc][:address]
       @reservationc.name = params[:reservationc][:name]
     end
+    redirect_to customers_reservationcs_verification_path
   end
   # POST /reservationcs or /reservationcs.json
   def create
@@ -69,6 +69,10 @@ class Customers::ReservationcsController < ApplicationController
       format.html { redirect_to reservationcs_url, notice: "Reservationc was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def confirm
+
   end
 
   private

@@ -15,8 +15,9 @@ root to:'homes#top'
  namespace :customers, path: "" do
   resources :customers, only: [:show]
   resources :courses, only: [:show,:index]
-  resources :reservationcs, only: [:new, :create]
-   get 'reservationcs/verification' => 'reservationcs#velification'
+   get 'reservationcs/verification' => 'reservationcs#confirm'
+   post 'reservationcs/verification' => 'reservationcs#velification'
+  resources :reservationcs, only: [:new, :create, :index, :show, :update]
  end
 
  namespace :admins  do

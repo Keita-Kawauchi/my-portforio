@@ -1,4 +1,4 @@
-<%= form_with model: reservationc, url:customers_reservationcs_verification_path, local: true do |reservationc| %>
+<%= form_with model: reservationc, url:customers_reservationcs_verification_path, local: true do |f| %>
   <% if reservationc.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(reservationc.errors.count, "error") %> prohibited this reservationc from being saved:</h2>
@@ -12,26 +12,26 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :名前 %>
-    <%= form.text_field :name %>
+    <%= f.label :名前 %>
+    <%= f.text_field :name %>
   </div>
 
   <div class="field">
-    <%= form.label :チェックイン %>
-    <%= form.datetime_select :start_time %>
+    <%= f.label :チェックイン %>
+    <%= f.datetime_select :start_time %>
   </div>
 
 　<div class="field">
-    <%= form.label :チェックアウト %>
-    <%= form.datetime_select :start_time %>
+    <%= f.label :チェックアウト %>
+    <%= f.datetime_select :start_time %>
   </div>
 
 　<div class="field">
-    <%= form.label :人数 %>
-    <%= form.number_field :number_of_people %>人
+    <%= f.label :人数 %>
+    <%= f.number_field :number_of_people %>人
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= f.submit %>
   </div>
 <% end %>

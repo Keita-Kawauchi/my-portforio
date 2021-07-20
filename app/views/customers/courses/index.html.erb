@@ -26,7 +26,7 @@
               <%= attachment_image_tag(course, :image, size: "180x130", fallback: "noimage.jpg") %>
             </div>
             <p class="courses-name">
-              <%= link_to course.name, new_customers_reservationc_path %>
+              <%= link_to course.name, admins_reservationc_path %>
             </p>
             <p class="course-introduction">
               <%= course.introduction %>

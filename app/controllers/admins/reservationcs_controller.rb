@@ -1,5 +1,9 @@
-class ReservationcsController < ApplicationController
+class Admins::ReservationcsController < ApplicationController
   before_action :if_not_admin
+
+  def new
+    @reservationc = Reservationc.new
+  end
 
    private
   def if_not_admin

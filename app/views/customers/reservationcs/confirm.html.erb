@@ -15,25 +15,30 @@
           <% reservationcs.each do |reservationc| %>
             <tr>
               <td class="text-right">
-                ¥<%= reservationc.course.non_tax_price.to_s(:delimited) %>
+                ¥<%= reservationc.course.price.to_s(:delimited) %>
               </td>
               <td class="text-right">
                   <%= reservationc.amount %>
               </td>
               <td class="text-right">
-                ¥<%= (reservationc.course.non_tax_price * reservationc.amount).to_s(:delimited)  %>
+                ¥<%= (reservationc.course.price * reservationc.amount).to_s(:delimited)  %>
               </td>
             </tr>
-            <% (@sum += (reservationc.course.non_tax_price * reservationc.amount)).to_s(:delimited) %>
+            <% (@sum += (reservationc.course.price * reservationc.amount)).to_s(:delimited) %>
           <% end %>
         </tbody>
       </table>
     </div>
      <div class ="col-xs-11 text-center">
-      <%= form_for(@reservationc, url:customer_orders_path, method: :post,) do |f| %>
+      <%= form_for(@reservationc, url:customer_courses_path, method: :post,) do |f| %>
         <%= f.hidden_field :postcode %>
         <%= f.hidden_field :address %>
-        <%= f.hidden_field :name %>
+        <%= f.hidden_field :email %>
+        <%= f.hidden_field :last_name %>
+        <%= f.hidden_field :first_name %>
+        <%= f.hidden_field :last_name_kana %>
+        <%= f.hidden_field :first_name_kana %>
+        <%= f.hidden_field :phone_number %>
         <%= f.hidden_field :total_amount, :value => @total_amount %>
         <%= f.hidden_field :customer_id, :value => current_customer.id %>
         <%= f.hidden_field :postage, :value => @postage %>
