@@ -11,7 +11,7 @@
 <div class="container my-5">
 
   <h2 class="product-headline head-line title_h2 text-center">
-	  商品一覧
+	  コース一覧
 
 	</h2>
 
@@ -26,10 +26,13 @@
               <%= attachment_image_tag(course, :image, size: "180x130", fallback: "noimage.jpg") %>
             </div>
             <p class="courses-name">
-              <%= link_to course.name, admins_reservationc_path %>
+              <%= link_to course.name, customers_reservationcs_path %>
             </p>
             <p class="course-introduction">
               <%= course.introduction %>
+            </p>
+            <p class="course-price">
+              <%= course.price %>
             </p>
           <% end %>
           </div>

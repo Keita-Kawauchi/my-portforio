@@ -18,25 +18,18 @@ class Customers::ReservationcsController < ApplicationController
 
   # GET /reservationcs/1/edit
   def edit
+   @reservationc = Reservationc.find(params[:id])
   end
 
-  def velification
+  def confirm
     @reservationc = Reservationc.new(reservationc_params)
-    if params[:erea] == "0"
-      @reservationc.postcode = current_customer.postcode
-      @reservationc.address = current_customer.address
-      @reservationc.name = current_customer.last_name + current_customer.first_name
 
-    elsif params[:erea] == "1"
-      @reservationc.postcode = params[:reservationc][:postcode]
-      @reservationc.address = params[:reservationc][:address]
-      @reservationc.name = params[:reservationc][:name]
-    end
-    redirect_to customers_reservationcs_verification_path
+    #redirect_to customers_reservationcs_verification_path
   end
   # POST /reservationcs or /reservationcs.json
   def create
     @reservationc = Reservationc.new(reservationc_params)
+    @reservationc.save
 
     respond_to do |format|
       if @reservationc.save
@@ -71,10 +64,6 @@ class Customers::ReservationcsController < ApplicationController
     end
   end
 
-  def confirm
-
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
 
@@ -85,6 +74,6 @@ class Customers::ReservationcsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def reservationc_params
-      params.require(:reservationc).permit(:name, :start_time)
+      params.require(:reservationc).permit(:name, :start_time, :end_time, :number_of_people)
     end
 end

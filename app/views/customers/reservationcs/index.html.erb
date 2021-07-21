@@ -17,9 +17,9 @@
       <tr>
         <td><%= reservationc.name %></td>
         <td><%= reservationc.start_time %></td>
-        <td><%= link_to 'Show', reservationc %></td>
-        <td><%= link_to 'Edit', edit_reservationc_path(reservationc) %></td>
-        <td><%= link_to 'Destroy', reservationc, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', customers_reservationc_path(reservationc) %></td>
+        <td><%= link_to 'Edit', edit_customers_reservationc_path(reservationc) %></td>
+        <td><%= link_to 'Destroy', customers_reservationc_path(reservationc), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -38,4 +38,4 @@
   <% end %>
 <% end %>
 
-<%= link_to 'New Reservationc', new_reservationcs_path %>
+<%= link_to 'New Reservationc', new_customers_reservationc_path %>

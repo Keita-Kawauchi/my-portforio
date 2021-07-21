@@ -12,6 +12,11 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :コース %>
+    　和室コース
+  </div>
+
+  <div class="field">
     <%= f.label :名前 %>
     <%= f.text_field :name %>
   </div>
@@ -23,13 +28,14 @@
 
 　<div class="field">
     <%= f.label :チェックアウト %>
-    <%= f.datetime_select :start_time %>
+    <%= f.datetime_select :end_time %>
   </div>
 
 　<div class="field">
     <%= f.label :人数 %>
     <%= f.number_field :number_of_people %>人
   </div>
+
 
   <div class="actions">
     <%= f.submit %>

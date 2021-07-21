@@ -1,9 +1,8 @@
 <%= render 'layouts/customer.header' %>
 <h2 class="head-line title_h2 text-center">注文情報確認</h2>
- <div calss="row">
-  <div class="col-xs-9">
-    <% if current_customer.reservationcs.present? %>
-      <table class="table table-hover table-inverse table-bordered">
+ <div calss="row">a
+  <div class="col-xs-9">b
+      <table class="table table-hover table-inverse table-bordered">c
         <thead>
           <tr class="info">
             <th>コース</th>
@@ -12,39 +11,36 @@
           </tr>
         </thead>
         <tbody>
-          <% reservationcs.each do |reservationc| %>
             <tr>
               <td class="text-right">
-                ¥<%= reservationc.course.price.to_s(:delimited) %>
+                和室コース<%#= @reservationc.course.price.to_s(:delimited) %>
               </td>
               <td class="text-right">
-                  <%= reservationc.amount %>
+                  <%= @reservationc.name %>
               </td>
               <td class="text-right">
-                ¥<%= (reservationc.course.price * reservationc.amount).to_s(:delimited)  %>
+                ¥<%#= (@reservationc.course.price * @reservationc.amount).to_s(:delimited)  %>
               </td>
             </tr>
-            <% (@sum += (reservationc.course.price * reservationc.amount)).to_s(:delimited) %>
-          <% end %>
+            <%#= (@sum += (@reservationc.course.price * @reservationc.amount)).to_s(:delimited) %>
         </tbody>
       </table>
     </div>
      <div class ="col-xs-11 text-center">
-      <%= form_for(@reservationc, url:customer_courses_path, method: :post,) do |f| %>
-        <%= f.hidden_field :postcode %>
-        <%= f.hidden_field :address %>
-        <%= f.hidden_field :email %>
-        <%= f.hidden_field :last_name %>
-        <%= f.hidden_field :first_name %>
-        <%= f.hidden_field :last_name_kana %>
-        <%= f.hidden_field :first_name_kana %>
-        <%= f.hidden_field :phone_number %>
-        <%= f.hidden_field :total_amount, :value => @total_amount %>
-        <%= f.hidden_field :customer_id, :value => current_customer.id %>
-        <%= f.hidden_field :postage, :value => @postage %>
-        　　<i class="fas fa-shipping-fast fa-2x"></i>
-        <%= f.submit "購入を確定する", class: "btn btn-warning center-block col-xs-5" %>
-      <% end %>
+      <%#= form_for(@reservationc, url:customer_courses_path, method: :post) do |f| %>
+        <%#= f.hidden_field :postcode %>
+        <%#= f.hidden_field :address %>
+        <%#= f.hidden_field :email %>
+        <%#= f.hidden_field :last_name %>
+        <%#= f.hidden_field :first_name %>
+        <%#= f.hidden_field :last_name_kana %>
+        <%#= f.hidden_field :first_name_kana %>
+        <%#= f.hidden_field :phone_number %>
+        <%#= f.hidden_field :total_amount, :value => @total_amount %>
+        <%#= f.hidden_field :customer_id, :value => current_customer.id %>
+        <%#= f.hidden_field :postage, :value => @postage %>
+        <i class="fas fa-shipping-fast fa-2x"></i>
+        <%#= f.submit "購入を確定する", class: "btn btn-warning center-block col-xs-5" %>
+      <%# end %>
      </div>
-    <% end %>
   </div>
