@@ -23,10 +23,10 @@
           <div class="col-lg-3 col-md-5 mb-5 my-5">
 
             <div id="img_field" class="product">
-              <%= attachment_image_tag(course, :image, size: "180x130", fallback: "noimage.jpg") %>
+              <%= attachment_image_tag(course, :image, size: "180x130") %>
             </div>
             <p class="courses-name">
-              <%= link_to course.name, customers_reservationcs_path %>
+              <%= link_to course.name, customers_course_path(course.id) %>
             </p>
             <p class="course-introduction">
               <%= course.introduction %>

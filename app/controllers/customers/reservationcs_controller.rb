@@ -4,7 +4,8 @@ class Customers::ReservationcsController < ApplicationController
 
   # GET /reservationcs or /reservationcs.json
   def index
-    @reservationcs = Reservationc.all
+    @reservationcs = Reservationc.where(course_id: params[:course_id])
+
   end
 
   # GET /reservationcs/1 or /reservationcs/1.json
@@ -22,13 +23,13 @@ class Customers::ReservationcsController < ApplicationController
   end
 
   def confirm
-    @reservationc = Reservationc.new(reservationc_params)
+    @reservationc = Reservationc.new
 
     #redirect_to customers_reservationcs_verification_path
   end
   # POST /reservationcs or /reservationcs.json
   def create
-    @reservationc = Reservationc.new(reservationc_params)
+    @reservationc = Reservationc.new
     @reservationc.save
 
     respond_to do |format|
@@ -69,7 +70,7 @@ class Customers::ReservationcsController < ApplicationController
 
     before_action
     def set_reservationc
-      @reservationc = Reservationc.find(params[:id])
+      @reservationc = Reservationc.new
     end
 
     # Only allow a list of trusted parameters through.

@@ -13,16 +13,19 @@
         <tbody>
             <tr>
               <td class="text-right">
-                和室コース<%#= @reservationc.course.price.to_s(:delimited) %>
+               <%= @reservationc.course_id %>
               </td>
               <td class="text-right">
-                  <%= @reservationc.name %>
+               <%= @reservationc.name %>
+              </td>
+              <td>
+                <%= @reservationc.number_of_people %>
               </td>
               <td class="text-right">
-                ¥<%#= (@reservationc.course.price * @reservationc.amount).to_s(:delimited)  %>
+                <%= (@reservationc.course.price * @reservationc.number_of_people).to_s(:delimited)  %>
               </td>
             </tr>
-            <%#= (@sum += (@reservationc.course.price * @reservationc.amount)).to_s(:delimited) %>
+
         </tbody>
       </table>
     </div>

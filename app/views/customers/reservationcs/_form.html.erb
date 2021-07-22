@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :コース %>
-    　和室コース
+    　<%= reservationc.course_id %>
   </div>
 
   <div class="field">
@@ -36,6 +36,9 @@
     <%= f.number_field :number_of_people %>人
   </div>
 
+  <div class="field">
+   ¥14000
+  </div>
 
   <div class="actions">
     <%= f.submit %>

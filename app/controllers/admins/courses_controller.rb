@@ -1,6 +1,6 @@
 class Admins::CoursesController < ApplicationController
     def new
-     @course = Course.new
+     @course = Course.new(params[:id])
     end
 
     def index
@@ -10,7 +10,7 @@ class Admins::CoursesController < ApplicationController
     def create
      @course = Course.new(course_params)
      @course.save
-     redirect_to customers_reservationcs_path
+     redirect_to customers_courses_path
     end
 
     def show

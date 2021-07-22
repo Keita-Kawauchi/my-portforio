@@ -1,24 +1,27 @@
- <%= form_for(@course, url: {controller: 'courses', action: 'create' }) do |f| %>
+ <%= form_for(@course, url:customers_reservationcs_path) do |f| %>
       <div class="form-group">
         <%= f.label :写真 %>
         <div class="row">
-          <%= course.image %>
+          <%= attachment_image_tag @course, :image, size: '180x180' %>
         </div>
       </div>
 
       <div class="form-group">
         <%= f.label :コース %>
-          <%= course.name %>
+          <%= @course.name %>
       </div>
 
       <div class="form-group">
         <%= f.label :コース紹介 %>
         <div class="row">
-        <%= course.introduction %>
+        <%= @course.introduction %>
         </div>
       </div>
 
       <div class="form-group">
         <%= f.label :税抜き価格 %>
-        <lavel><%= course.price %>円</lavel>
+        <lavel><%= @course.price %>円</lavel>
       </div>
+
+      <%= link_to "予約する", customers_reservationcs_path(course_id: @course.id) %>
+ <% end %>

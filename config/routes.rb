@@ -22,7 +22,7 @@ root to:'homes#top'
 
  namespace :admins  do
  resources :customers, only: [:index,:show, :edit,:update]
- resources :courses, only: [:new, :create, :index, :show, :destroy]
+ resources :courses, only: [:new, :create, :index, :show, :destroy, :edit]
  resources :products, only: [:index,:show, :edit,:update, :new, :create]
  resources :reservationcs, only: [:index, :show, :update]
   get 'reservationcs/index'
