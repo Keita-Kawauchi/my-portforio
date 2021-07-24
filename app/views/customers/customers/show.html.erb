@@ -1,14 +1,17 @@
-<div class="col"><p>名前</p></div>
+<%= render 'layouts/customer.header'%>
+<div class="container">
+ <div class="col">
+  <p>名前</p>
         <div class="col">
           <div class="field">
-            <%= f.label :last_name, "(姓)" %>
-            <%= last_name %>
+            <%#= f.label :last_name, "(姓)" %>
+            <%= @customer.last_name %>
           </div>
         </div>
         <div class="col">
           <div class="field">
-            <%= f.label :first_name, "(名)" %>
-            <%= customer.first_name %>
+            <%#= f.label :first_name, "(名)" %>
+            <%= @customer.first_name %>
           </div>
         </div>
       </div>
@@ -19,24 +22,24 @@
         </div>
         <div class="col">
           <div class="field">
-            <%= f.label :last_name_kana, "(セイ)" %>
-            <%= customer.last_name_kana %>
+            <p>(セイ)</p>
+            <%= @customer.last_name_kana %>
           </div>
         </div>
         <div class="col">
           <div class="field">
-            <%= f.label :first_name_kana, "(メイ)" %>
-            <%= customer.first_name_kana %>
+            <p>(メイ)</p>
+            <%= @customer.first_name_kana %>
           </div>
         </div>
       </div>
 
       <div class="row">
         <div class="col">
-          <%= f.label :email, "メールアドレス" %>
+          <p>メールアドレス</p>
         </div>
         <div class="col">
-          <%= customer.email %>
+          <%= @customer.email %>
         </div>
         <div class="col"></div>
       </div>
@@ -44,31 +47,33 @@
       <div class="row">
         <div class="col">
           <div class="field">
-            <%= f.label :postcode, "郵便番号（ハイフンなし）" %>
+            <p>郵便番号（ハイフンなし）</p>
           </div>
         </div>
         <div class="col">
-          <%= customer.postcode %>
+          <%= @customer.postcode %>
         </div>
         <div class="col"></div>
       </div>
 
       <div class="row">
         <div class="col">
-          <%= f.label :address, "住所" %>
+          <p>住所</p>
         </div>
         <div class="col">
-          <%= customer.address %>
+          <%= @customer.address %>
         </div>
         <div class="col"></div>
       </div>
 
       <div class="row">
         <div class="col">
-          <%= f.label :phone_number, "電話番号（ハイフンなし）" %>
+          <p>電話番号（ハイフンなし）</p>
         </div>
         <div class="col">
-          <%= customer.phone_number %>
+          <%= @customer.phone_number %>
         </div>
         <div class="col"></div>
       </div>
+    </div>
+  </div>

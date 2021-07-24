@@ -26,7 +26,6 @@
           <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "nav-link text-white" %>
         </li>
       </ul>
-
     <% else %>
 
       <span class="u h7 text-white strong">
@@ -41,7 +40,7 @@
           <%= link_to "ログイン", new_customer_session_path, class: "nav-link text-white" %>
         </li>
         <li class="nav-item">
-          <%= link_to "コース一覧", reservationcs_index_path, class: "nav-link text-white" %>
+          <%= link_to "コース一覧", customers_courses_path, class: "nav-link text-white" %>
         </li>
       </ul>
 

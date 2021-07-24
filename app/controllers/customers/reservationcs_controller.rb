@@ -5,7 +5,6 @@ class Customers::ReservationcsController < ApplicationController
   # GET /reservationcs or /reservationcs.json
   def index
     @reservationcs = Reservationc.where(course_id: params[:course_id])
-
   end
 
   # GET /reservationcs/1 or /reservationcs/1.json
@@ -23,7 +22,11 @@ class Customers::ReservationcsController < ApplicationController
   end
 
   def confirm
-    @reservationc = Reservationc.new
+           logger.debug("===")
+
+   
+    @reservationc = params[:reservationc]
+   logger.debug(@reservationc )
 
     #redirect_to customers_reservationcs_verification_path
   end
@@ -31,6 +34,7 @@ class Customers::ReservationcsController < ApplicationController
   def create
     @reservationc = Reservationc.new
     @reservationc.save
+
 
     respond_to do |format|
       if @reservationc.save

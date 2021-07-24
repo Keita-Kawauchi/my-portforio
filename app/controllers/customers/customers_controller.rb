@@ -1,11 +1,10 @@
-class CustomersController < ApplicationController
-
+class Customers::CustomersController < ApplicationController
   def show
-  	@customer = Customer.find(params[:id])
+    @customer = Customer.find(params[:id])
   end
 
   def edit
-    @customer = Customer.find(params[:id])
+    @customer = Customer.new
   end
 
   def update
@@ -20,14 +19,7 @@ class CustomersController < ApplicationController
 
   private
   def customer_params
-   params.require(:customer).permit(:is_deleted, :last_name, :first_name, :last_name_kana, :first_name_kana,
-  	                                   :phone_number, :email, :password, :postcode, :address)
+   params.require(:customer).permit(:is_deleted, :last_name, :first_name, :last_name_kana, :first_name_kana,:phone_number, :email, :password, :postcode, :address)
   end
-
-  #def ensure_correct_customer
-   #@customer = Customer.find(params[:id])
-    #if current_customer.id != @customer.id
-     #redirect_to root_path
-    #end
-  #end
 end
+

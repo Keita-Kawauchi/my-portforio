@@ -1,4 +1,6 @@
+　<%= render 'layouts/customer.header' %>
  <%= form_for(@course, url:customers_reservationcs_path) do |f| %>
+  <div class="container">
       <div class="form-group">
         <%= f.label :写真 %>
         <div class="row">
@@ -25,3 +27,4 @@
 
       <%= link_to "予約する", customers_reservationcs_path(course_id: @course.id) %>
  <% end %>
+ </div>

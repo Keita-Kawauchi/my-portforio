@@ -1,11 +1,14 @@
 <%= render 'layouts/customer.header' %>
+<div class="container">
 <h2 class="head-line title_h2 text-center">注文情報確認</h2>
- <div calss="row">a
-  <div class="col-xs-9">b
-      <table class="table table-hover table-inverse table-bordered">c
+ <div calss="row">
+  <div class="col-xs-9">
+      <table class="table table-hover table-inverse table-bordered">
         <thead>
           <tr class="info">
-            <th>コース</th>
+            <th>名前</th>
+            <th>チェックイン</th>
+            <th>チェックアウト</th>
             <th>人数</th>
             <th>料金(税込)</th>
           </tr>
@@ -13,37 +16,28 @@
         <tbody>
             <tr>
               <td class="text-right">
-               <%= @reservationc.course_id %>
+               <%= @reservationc[:name]%>
               </td>
               <td class="text-right">
-               <%= @reservationc.name %>
-              </td>
-              <td>
-                <%= @reservationc.number_of_people %>
+               <%= @reservationc["start_time(1i)"] %>.<%= @reservationc["start_time(2i)"] %>.<%= @reservationc["start_time(3i)"] %>|<%= @reservationc["start_time(4i)"] %>:<%= @reservationc["start_time(5i)"] %>
               </td>
               <td class="text-right">
-                <%= (@reservationc.course.price * @reservationc.number_of_people).to_s(:delimited)  %>
+               <%= @reservationc["end_time(1i)"] %>.<%= @reservationc["end_time(2i)"] %>.<%= @reservationc["end_time(3i)"] %>|<%= @reservationc["end_time(4i)"] %>:<%= @reservationc["end_time(5i)"] %>
+              </td>
+              <td class="text-right">
+                <%= @reservationc[:number_of_people] %>人
+              </td>
+              <td class="text-right">
+                <%= (15000* @reservationc[:number_of_people].to_i).to_s %>
               </td>
             </tr>
-
         </tbody>
       </table>
+      <div class="container">
+       <div class="row">
+        <%= link_to "確定", customers_courses_path %> | <%= link_to "戻る", new_customers_reservationc_path %>
+       </div>
+      </div>
     </div>
-     <div class ="col-xs-11 text-center">
-      <%#= form_for(@reservationc, url:customer_courses_path, method: :post) do |f| %>
-        <%#= f.hidden_field :postcode %>
-        <%#= f.hidden_field :address %>
-        <%#= f.hidden_field :email %>
-        <%#= f.hidden_field :last_name %>
-        <%#= f.hidden_field :first_name %>
-        <%#= f.hidden_field :last_name_kana %>
-        <%#= f.hidden_field :first_name_kana %>
-        <%#= f.hidden_field :phone_number %>
-        <%#= f.hidden_field :total_amount, :value => @total_amount %>
-        <%#= f.hidden_field :customer_id, :value => current_customer.id %>
-        <%#= f.hidden_field :postage, :value => @postage %>
-        <i class="fas fa-shipping-fast fa-2x"></i>
-        <%#= f.submit "購入を確定する", class: "btn btn-warning center-block col-xs-5" %>
-      <%# end %>
-     </div>
   </div>
+</div>

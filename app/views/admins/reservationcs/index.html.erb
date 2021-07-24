@@ -1,0 +1,50 @@
+<%= render 'layouts/admin.header' %>
+<h2 class="head-line title_h2 text-center">予約情報一覧</h2>
+ <div calss="row">
+  <div class="col-xs-9">
+      <table class="table table-hover table-inverse table-bordered">
+        <thead>
+          <tr class="info">
+            <th>コース</th>
+            <th>名前</th>
+            <th>人数</th>
+            <th>料金(税込)</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+              <td class="text-right">
+               <%= @reservationc.course_id %>
+              </td>
+              <td class="text-right">
+               <%= @reservationc.name %>
+              </td>
+              <td>
+                <%= @reservationc.number_of_people %>
+              </td>
+              <td class="text-right">
+                <%= (@reservationc.course.price * @reservationc.number_of_people).to_s(:delimited)  %>
+              </td>
+            </tr>
+
+        </tbody>
+      </table>
+    </div>
+     <div class ="col-xs-11 text-center">
+      <%#= form_for(@reservationc, url:customer_courses_path, method: :post) do |f| %>
+        <%#= f.hidden_field :postcode %>
+        <%#= f.hidden_field :address %>
+        <%#= f.hidden_field :email %>
+        <%#= f.hidden_field :last_name %>
+        <%#= f.hidden_field :first_name %>
+        <%#= f.hidden_field :last_name_kana %>
+        <%#= f.hidden_field :first_name_kana %>
+        <%#= f.hidden_field :phone_number %>
+        <%#= f.hidden_field :total_amount, :value => @total_amount %>
+        <%#= f.hidden_field :customer_id, :value => current_customer.id %>
+        <%#= f.hidden_field :postage, :value => @postage %>
+        <i class="fas fa-shipping-fast fa-2x"></i>
+        <%#= f.submit "購入を確定する", class: "btn btn-warning center-block col-xs-5" %>
+      <%# end %>
+     </div>
+  </div>

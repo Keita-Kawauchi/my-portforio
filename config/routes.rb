@@ -6,9 +6,9 @@ Rails.application.routes.draw do
 }
 
   devise_for :customers, controllers: {
-  sessions:      'customer/sessions',
-  passwords:     'customer/passwords',
-  registrations: 'customer/registrations'
+  sessions:      'customers/sessions',
+  passwords:     'customers/passwords',
+  registrations: 'customers/registrations'
 }
 
 root to:'homes#top'
@@ -25,9 +25,7 @@ root to:'homes#top'
  resources :courses, only: [:new, :create, :index, :show, :destroy, :edit]
  resources :products, only: [:index,:show, :edit,:update, :new, :create]
  resources :reservationcs, only: [:index, :show, :update]
-  get 'reservationcs/index'
   get 'reservationcs/new'
-  get 'reservationcs/show'
   get 'reservationcs/verification'
 
  end

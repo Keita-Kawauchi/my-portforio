@@ -1,7 +1,10 @@
 <%= render 'layouts/customer.header' %>
-<h1>New Reservationc</h1>
+<div class="container">
+
+<h1>予約</h1>
 
 <%= render 'form', reservationc: @reservationc %>
 
 <%= link_to 'Back', customers_reservationcs_path %>
 <%= link_to 'next', customers_reservationcs_verification_path %>
+</div>

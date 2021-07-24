@@ -1,4 +1,4 @@
-<%= render 'layouts/customer_header' %>
+<%= render 'layouts/customer.header' %>
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -11,5 +11,5 @@
   <%= @reservationc.start_time %>
 </p>
 
-<%= link_to 'Edit', edit_reservationc_path(@reservationc) %> |
-<%= link_to 'Back', reservationcs_path %>
+<%= link_to 'Edit', edit_customers_reservationc_path %>
+<%= link_to 'Back', customers_courses_path %>
