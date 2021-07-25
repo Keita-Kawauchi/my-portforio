@@ -1,6 +1,6 @@
 class Admins::CoursesController < ApplicationController
     def new
-     @course = Course.new(params[:id])
+     @course = Course.new
     end
 
     def index
@@ -31,6 +31,6 @@ class Admins::CoursesController < ApplicationController
     end
 
     def course_params
-     params.require(:course).permit(:name, :non_tax_price, :introduction, :is_active, :genre_id, :image)
+     params.require(:course).permit(:name, :price, :introduction, :image)
     end
 end

@@ -1,3 +1,4 @@
+<div class="container my-5">
 <h2>Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -26,4 +27,5 @@
   </div>
 <% end %>
 
-<%= render "admins/shared/links" %>
+<%= link_to "新規登録", admins_customers_path %>
+</div>

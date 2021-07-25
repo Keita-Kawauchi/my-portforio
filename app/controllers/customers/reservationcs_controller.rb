@@ -32,7 +32,7 @@ class Customers::ReservationcsController < ApplicationController
   end
   # POST /reservationcs or /reservationcs.json
   def create
-    @reservationc = Reservationc.new
+    @reservationc = Reservationc.new(reservationc_params)
     @reservationc.save
 
 

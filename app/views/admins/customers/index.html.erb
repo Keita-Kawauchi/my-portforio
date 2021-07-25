@@ -13,8 +13,7 @@
   <tbody>
     <% @customers.each do |customer| %>
       <tr>
-
-        <td><%= customer.full_name%></td>
+        <td><%= customer.full_name %></td>
         <td><%= customer.email %></td>
         <td><%= customer.is_deleted ? "退会":"有効" %></td>
       </tr>
