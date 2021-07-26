@@ -14,6 +14,7 @@ class Customers::ReservationcsController < ApplicationController
   # GET /reservationcs/new
   def new
     @reservationc = Reservationc.new
+    @reservationc.course_id = params[:course_id].to_i
   end
 
   # GET /reservationcs/1/edit
@@ -24,8 +25,8 @@ class Customers::ReservationcsController < ApplicationController
   def confirm
            logger.debug("===")
 
-   
-    @reservationc = params[:reservationc]
+
+    @reservationc = Reservationc.new(reservationc_params)
    logger.debug(@reservationc )
 
     #redirect_to customers_reservationcs_verification_path
@@ -33,6 +34,7 @@ class Customers::ReservationcsController < ApplicationController
   # POST /reservationcs or /reservationcs.json
   def create
     @reservationc = Reservationc.new(reservationc_params)
+    @reservationc.customer_id = 1 # TODO: current_customer
     @reservationc.save
 
 
@@ -79,6 +81,6 @@ class Customers::ReservationcsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def reservationc_params
-      params.require(:reservationc).permit(:name, :start_time, :end_time, :number_of_people)
+      params.require(:reservationc).permit(:course_id, :name, :start_time, :end_time, :number_of_people, :total_price)
     end
 end

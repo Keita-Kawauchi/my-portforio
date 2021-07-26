@@ -12,7 +12,7 @@
           </tr>
         </thead>
         <tbody>
-         <%= @reservationcs.each do |reservation| %>
+         <% @reservationcs.each do |reservation| %>
             <tr>
               <td class="text-right">
                <%= reservation.course.name %>
@@ -24,7 +24,7 @@
                 <%= reservation.number_of_people %>
               </td>
               <td class="text-right">
-                <%= (reservation.course.price * reservation.number_of_people).to_s(:delimited)  %>
+                <%= reservation.course.price * reservation.number_of_people  %>
               </td>
             </tr>
           <% end %>

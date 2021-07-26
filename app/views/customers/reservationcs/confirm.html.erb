@@ -34,16 +34,23 @@
         </tbody>
       </table>
       <div class="container">
-       <div class="row
-         <% form_with model: @reservationc do |f|　%>
-             <% f.hidden_field :course_id, :value => current_course.id %>
-             <% f.hidden_field :start_time, :value => @reservationc["start_time(1i)"] %>
-　　　　　　 <% f.hidden_field :start_time, :value => @reservationc["start_time(2i)"] %>
-　　　　　　 <% f.hidden_field :start_time, :value => @reservationc["start_time(3i)"] %>
-　　　　　　 <% f.hidden_field :start_time, :value => @reservationc["start_time(4i)"] %>
-　　　　　　 <% f.hidden_field :start_time, :value => @reservationc["start_time(5i)"] %>
-　　　　　　 <% f.hidden_field :end_time, :value => @reservationc["end_time(1i)"] %>
-             <% f.submit "確定" %>
+       <div class="row">
+         <%= form_with model: @reservationc, url: customers_reservationcs_path, method: :post do |f| %>
+            <%= f.hidden_field :course_id, :value => @reservationc["course_id"] %>
+            <%= f.hidden_field :name, :value => @reservationc["name"] %>
+            <%= f.hidden_field :start_time, :value => @reservationc["start_time(1i)"] %>
+            <%= f.hidden_field :start_time, :value => @reservationc["start_time(2i)"] %>
+            <%= f.hidden_field :start_time, :value => @reservationc["start_time(3i)"] %>
+            <%= f.hidden_field :start_time, :value => @reservationc["start_time(4i)"] %>
+            <%= f.hidden_field :start_time, :value => @reservationc["start_time(5i)"] %>
+            <%= f.hidden_field :end_time, :value => @reservationc["end_time(1i)"] %>
+            <%= f.hidden_field :end_time, :value => @reservationc["end_time(2i)"] %>
+            <%= f.hidden_field :end_time, :value => @reservationc["end_time(3i)"] %>
+            <%= f.hidden_field :end_time, :value => @reservationc["end_time(4i)"] %>
+            <%= f.hidden_field :end_time, :value => @reservationc["end_time(5i)"] %>
+            <%= f.hidden_field :number_of_people %>
+            <%#= f.hidden_field :total_price, :value => (15000* @reservationc[:number_of_people].to_i) %>
+            <%= f.submit "確定" %>
 　       <% end %>
         <%#= link_to "確定", customers_courses_path %> | <%= link_to "戻る", new_customers_reservationc_path %>
        </div>
