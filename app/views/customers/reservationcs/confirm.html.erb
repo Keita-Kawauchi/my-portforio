@@ -1,6 +1,6 @@
 <%= render 'layouts/customer.header' %>
 <div class="container">
-<h2 class="head-line title_h2 text-center">注文情報確認</h2>
+<h2 class="head-line title_h2 text-center">予約情報確認</h2>
  <div calss="row">
   <div class="col-xs-9">
       <table class="table table-hover table-inverse table-bordered">
@@ -19,10 +19,10 @@
                <%= @reservationc[:name]%>
               </td>
               <td class="text-right">
-               <%= @reservationc["start_time(1i)"] %>.<%= @reservationc["start_time(2i)"] %>.<%= @reservationc["start_time(3i)"] %>|<%= @reservationc["start_time(4i)"] %>:<%= @reservationc["start_time(5i)"] %>
+               <%= @reservationc[:start_time] %>
               </td>
               <td class="text-right">
-               <%= @reservationc["end_time(1i)"] %>.<%= @reservationc["end_time(2i)"] %>.<%= @reservationc["end_time(3i)"] %>|<%= @reservationc["end_time(4i)"] %>:<%= @reservationc["end_time(5i)"] %>
+               <%= @reservationc[:end_time] %>
               </td>
               <td class="text-right">
                 <%= @reservationc[:number_of_people] %>人
@@ -38,18 +38,18 @@
          <%= form_with model: @reservationc, url: customers_reservationcs_path, method: :post do |f| %>
             <%= f.hidden_field :course_id, :value => @reservationc["course_id"] %>
             <%= f.hidden_field :name, :value => @reservationc["name"] %>
-            <%= f.hidden_field :start_time, :value => @reservationc["start_time(1i)"] %>
-            <%= f.hidden_field :start_time, :value => @reservationc["start_time(2i)"] %>
-            <%= f.hidden_field :start_time, :value => @reservationc["start_time(3i)"] %>
-            <%= f.hidden_field :start_time, :value => @reservationc["start_time(4i)"] %>
-            <%= f.hidden_field :start_time, :value => @reservationc["start_time(5i)"] %>
-            <%= f.hidden_field :end_time, :value => @reservationc["end_time(1i)"] %>
-            <%= f.hidden_field :end_time, :value => @reservationc["end_time(2i)"] %>
-            <%= f.hidden_field :end_time, :value => @reservationc["end_time(3i)"] %>
-            <%= f.hidden_field :end_time, :value => @reservationc["end_time(4i)"] %>
-            <%= f.hidden_field :end_time, :value => @reservationc["end_time(5i)"] %>
+            <%= f.hidden_field :start_time, :value => @reservationc["start_time"] %>
+            <%#= f.hidden_field :start_time, :value => @reservationc["start_time(2i)"] %>
+            <%#= f.hidden_field :start_time, :value => @reservationc["start_time(3i)"] %>
+            <%#= f.hidden_field :start_time, :value => @reservationc["start_time(4i)"] %>
+            <%#= f.hidden_field :start_time, :value => @reservationc["start_time(5i)"] %>
+            <%= f.hidden_field :end_time, :value => @reservationc["end_time"] %>
+            <%#= f.hidden_field :end_time, :value => @reservationc["end_time(2i)"] %>
+            <%#= f.hidden_field :end_time, :value => @reservationc["end_time(3i)"] %>
+            <%#= f.hidden_field :end_time, :value => @reservationc["end_time(4i)"] %>
+            <%#= f.hidden_field :end_time, :value => @reservationc["end_time(5i)"] %>
             <%= f.hidden_field :number_of_people %>
-            <%#= f.hidden_field :total_price, :value => (15000* @reservationc[:number_of_people].to_i) %>
+            <%= f.hidden_field :total_price, :value => (15000 * @reservationc[:number_of_people].to_i) %>
             <%= f.submit "確定" %>
 　       <% end %>
         <%#= link_to "確定", customers_courses_path %> | <%= link_to "戻る", new_customers_reservationc_path %>

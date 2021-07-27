@@ -16,6 +16,7 @@ root to:'homes#top'
   resources :customers, only: [:show]
   resources :courses, only: [:show,:index]
 
+   get 'reservationcs/thanx' => 'reservationcs#thanx'
    post 'reservationcs/verification' => 'reservationcs#confirm'
   resources :reservationcs, only: [:new, :create, :index, :show, :update, :edit, :destroy]
  end

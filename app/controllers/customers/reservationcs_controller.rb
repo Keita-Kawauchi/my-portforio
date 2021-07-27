@@ -27,26 +27,16 @@ class Customers::ReservationcsController < ApplicationController
 
 
     @reservationc = Reservationc.new(reservationc_params)
-   logger.debug(@reservationc )
+   logger.debug(@reservationc.attributes)
 
-    #redirect_to customers_reservationcs_verification_path
+
   end
   # POST /reservationcs or /reservationcs.json
   def create
     @reservationc = Reservationc.new(reservationc_params)
-    @reservationc.customer_id = 1 # TODO: current_customer
-    @reservationc.save
-
-
-    respond_to do |format|
-      if @reservationc.save
-        format.html { redirect_to (@reservationc.id), notice: "Reservationc was successfully created." }
-        format.json { render :show, status: :created, location: @reservationc }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @reservationc.errors, status: :unprocessable_entity }
-      end
-    end
+    @reservationc.customer_id = current_customer.id
+    @reservationc.save!
+    redirect_to customers_reservationcs_thanx_path
   end
 
   # PATCH/PUT /reservationcs/1 or /reservationcs/1.json
@@ -69,6 +59,9 @@ class Customers::ReservationcsController < ApplicationController
       format.html { redirect_to reservationcs_url, notice: "Reservationc was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def thanx
   end
 
   private

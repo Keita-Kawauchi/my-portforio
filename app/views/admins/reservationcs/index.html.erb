@@ -1,4 +1,5 @@
 <%= render 'layouts/admin.header'%>
+<div class="container">
 <h2 class="head-line title_h2 text-center">予約情報一覧</h2>
  <div calss="row">
   <div class="col-xs-9">
@@ -7,6 +8,8 @@
           <tr class="info">
             <th>コース</th>
             <th>名前</th>
+            <th>チェックイン</th>
+            <th>チェックアウト</th>
             <th>人数</th>
             <th>料金(税込)</th>
           </tr>
@@ -20,11 +23,17 @@
               <td class="text-right">
                <%= reservation.name %>
               </td>
-              <td>
+              <td class="text-right">
+               <%= reservation.start_time %>
+              </td>
+              <td class="text-right">
+               <%= reservation.end_time %>
+              </td>
+              <td class="text-right">
                 <%= reservation.number_of_people %>
               </td>
               <td class="text-right">
-                <%= reservation.course.price * reservation.number_of_people  %>
+                <%= reservation.total_price %>
               </td>
             </tr>
           <% end %>
@@ -32,3 +41,4 @@
       </table>
     </div>
   </div>
+</div>
