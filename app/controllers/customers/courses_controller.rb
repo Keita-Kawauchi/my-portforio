@@ -1,4 +1,5 @@
 class Customers::CoursesController < ApplicationController
+ authenticate_user!
    def index
     @courses = Course.all
    end
