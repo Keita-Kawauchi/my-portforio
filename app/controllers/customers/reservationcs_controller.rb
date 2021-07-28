@@ -23,9 +23,7 @@ class Customers::ReservationcsController < ApplicationController
   end
 
   def confirm
-           logger.debug("===")
-
-
+      logger.debug("===")
     @reservationc = Reservationc.new(reservationc_params)
    logger.debug(@reservationc.attributes)
 
