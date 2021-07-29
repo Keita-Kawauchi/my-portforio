@@ -1,10 +1,9 @@
 class Customers::CoursesController < ApplicationController
- authenticate_user!
-   def index
-    @courses = Course.all
-   end
+  def index
+   @courses = Course.all
+  end
 
-   def show
-    @course = Course.find(params[:id])
-   end
+  def show
+   @course = Course.find(params[:id])
+  end
 end
