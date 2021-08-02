@@ -9,6 +9,6 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    customers_courses_path # ログイン後に遷移するpathを設定
+    customers_courses_path 
   end
 end
