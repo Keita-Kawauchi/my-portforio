@@ -1,23 +1,18 @@
 class Customers::ReservationcsController < ApplicationController
   before_action :set_reservationc, only: %i[ show edit update destroy ]
-
-
-  # GET /reservationcs or /reservationcs.json
+ 
   def index
     @reservationcs = Reservationc.where(course_id: params[:course_id])
   end
 
-  # GET /reservationcs/1 or /reservationcs/1.json
   def show
   end
 
-  # GET /reservationcs/new
   def new
     @reservationc = Reservationc.new
     @reservationc.course_id = params[:course_id].to_i
   end
 
-  # GET /reservationcs/1/edit
   def edit
    @reservationc = Reservationc.find(params[:id])
   end
@@ -26,10 +21,8 @@ class Customers::ReservationcsController < ApplicationController
       logger.debug("===")
     @reservationc = Reservationc.new(reservationc_params)
    logger.debug(@reservationc.attributes)
-
-
   end
-  # POST /reservationcs or /reservationcs.json
+
   def create
     @reservationc = Reservationc.new(reservationc_params)
     @reservationc.customer_id = current_customer.id
@@ -37,7 +30,6 @@ class Customers::ReservationcsController < ApplicationController
     redirect_to customers_reservationcs_thanx_path
   end
 
-  # PATCH/PUT /reservationcs/1 or /reservationcs/1.json
   def update
     respond_to do |format|
       if @reservationc.update(reservationc_params)
@@ -50,7 +42,6 @@ class Customers::ReservationcsController < ApplicationController
     end
   end
 
-  # DELETE /reservationcs/1 or /reservationcs/1.json
   def destroy
     @reservationc.destroy
     respond_to do |format|
@@ -63,14 +54,12 @@ class Customers::ReservationcsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
 
     before_action
     def set_reservationc
       @reservationc = Reservationc.new
     end
 
-    # Only allow a list of trusted parameters through.
     def reservationc_params
       params.require(:reservationc).permit(:course_id, :name, :start_time, :end_time, :number_of_people, :total_price)
     end
