@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 root to:'homes#top'
  namespace :customers, path: "" do
   resources :customers, only: [:show]
+  
   resources :courses, only: [:show,:index]
 
    get 'reservationcs/thanx' => 'reservationcs#thanx'
